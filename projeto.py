@@ -1,8 +1,8 @@
 
 pessoa = []
 
-print("====================================")
-print("      Bem-vindo à Área de Login     ")
+print("====================================\n")
+print("|     Bem-vindo à Área de Login    |\n")
 print("====================================\n")
 
 
