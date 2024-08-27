@@ -4,6 +4,7 @@ pessoas = []
 
 area = "BEM VINDO"
 
+#definido cabeçalho para menus
 def cabecalho(area):
     print(f"""
        .--.                   .---.   
@@ -20,6 +21,7 @@ def cabecalho(area):
 -----------------------------------------
 """)
 
+#definido pagina para ambientes de pessoas e livros
 def pagina(area):
     while True:
         cabecalho(area)
@@ -39,6 +41,7 @@ def pagina(area):
         except ValueError:
             print("Entrada inválida. Por favor, digite um número.")
 
+#cadstros pessoas
 def cadastrar_pessoa():
     cpf = input("Insira o seu CPF: ")
 
@@ -63,6 +66,7 @@ def cadastrar_pessoa():
     print(f"Telefone: {telefone}")
     print(f"Email: {email}")
 
+#imprime as pessoas cadastradas
 def relatorio_pessoa():
     if len(pessoas) == 0:
         print("Nenhuma pessoa cadastrada.")
@@ -77,6 +81,7 @@ def relatorio_pessoa():
 -----------------------------------------
 """)
 
+#cadastra novos livros
 def cadastrar_livro():
     codigo = input("\nDigite o código do livro: ")
     for livro in livros:
@@ -94,6 +99,7 @@ def cadastrar_livro():
  Código: {codigo}\n Título: {titulo}\n Autor: {autor}\n Estado: {estado}
 -------------------------------------""")
 
+#imprime os livros cadastrados
 def relatorio_livro():
     if len(livros) == 0:
         print("Nenhum livro cadastrado.")
@@ -108,6 +114,7 @@ def relatorio_livro():
 -----------------------------------------
 """)
 
+#menu princapl antes de tudo
 def menu_principal():
     while True:
         cabecalho("MENU PRINCIPAL")
@@ -126,6 +133,7 @@ def menu_principal():
         except ValueError:
             print("Entrada inválida. Por favor, digite um número.")
 
+#navegação
 def navegacao_principal():
     while True:
         valor_nav = menu_principal()
