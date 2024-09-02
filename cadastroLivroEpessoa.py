@@ -1,8 +1,14 @@
+import os #biblioteca para limapar terminal
+
 # Listas para armazenar dados
 livros = []
 pessoas = []
 emprestimos = []
 multas = []
+
+
+def limpar_terminal():
+    os.system('cls')
 
 def cadastrar_livro():
     codigo = input("\nDigite o código do livro: ")
@@ -167,6 +173,7 @@ def menu_principal():
         opcao = input("Digite o número da opção desejada: ")
 
         if opcao == "1":
+            limpar_terminal()
             print(""" 
 1) Cadastrar Livro
 2) Alterar Situação do Livro
@@ -175,13 +182,17 @@ def menu_principal():
             escolha = input("Digite o número da opção desejada: ")
 
             if escolha == "1":
+                limpar_terminal()
                 cadastrar_livro()
             elif escolha == "2":
+                limpar_terminal()
                 alterar_situacao_livro()
             elif escolha == "3":
+                limpar_terminal()
                 alterar_estado_livro()
 
         elif opcao == "2":
+            limpar_terminal()
             print("""
 1) Cadastrar Pessoa
 2) Alterar Cadastro de Pessoa
@@ -189,11 +200,14 @@ def menu_principal():
             escolha = input("Digite o número da opção desejada: ")
 
             if escolha == "1":
+                limpar_terminal()
                 cadastro_pessoa()
             elif escolha == "2":
+                limpar_terminal()
                 alterar_cadastro_pessoa()
 
         elif opcao == "3":
+            limpar_terminal()
             print("""
 1) Criar Empréstimo
 2) Baixar Empréstimo
@@ -201,16 +215,21 @@ def menu_principal():
             escolha = input("Digite o número da opção desejada: ")
 
             if escolha == "1":
+                limpar_terminal()
                 criar_emprestimo()
             elif escolha == "2":
+                limpar_terminal()
                 baixar_emprestimo()
             elif escolha == "3":
+                limpar_terminal()
                 adiar_emprestimo()
 
         elif opcao == "4":
+            limpar_terminal()
             gerar_relatorio()
 
         elif opcao == "5":
+            limpar_terminal()
             print("Volte sempre!")
             break
         else:
