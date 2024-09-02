@@ -66,17 +66,6 @@ def alterar_cadastro_pessoa():
             return
     print("Pessoa não encontrada.")
 
-def criar_multa():
-    cpf = input("Digite o CPF da pessoa para aplicar a multa: ")
-    for pessoa in pessoas:
-        if pessoa[0] == cpf:
-            valor_multa = float(input("Digite o valor da multa: "))
-            motivo = input("Digite o motivo da multa: ")
-            multas.append([cpf, valor_multa, motivo])
-            print("Multa aplicada com sucesso!")
-            return
-    print("Pessoa não encontrada.")
-
 def criar_emprestimo():
     cpf = input("Digite o CPF da pessoa que vai realizar o empréstimo: ")
     pessoa = None
@@ -111,14 +100,6 @@ def baixar_emprestimo():
 
             for livro in livros:
                 if livro[0] == codigo_livro:
-                    aplicar_multa = input("Aplicar multa? (S/N): ").upper()
-                    if aplicar_multa == "S":
-                        criar_multa()
-                    
-                    registrar_avaria = input("Registrar avaria? (S/N): ").upper()
-                    if registrar_avaria == "S":
-                        alterar_estado_livro()
-
                     alterar_situacao_livro()
                     print("Empréstimo baixado com sucesso!")
                     return
@@ -138,8 +119,7 @@ def adiar_emprestimo():
 def gerar_relatorio():
     print("\nEscolha o tipo de relatório:")
     print("1) Empréstimos vigentes")
-    print("2) Empréstimos passados")
-    print("3) Livros da Biblioteca")
+    print("2) Livros da Biblioteca")
     opcao = input("Opção: ")
 
     if opcao == "1":
@@ -147,9 +127,9 @@ def gerar_relatorio():
         for emprestimo in emprestimos:
             for livro in livros:
                 if emprestimo[1] == livro[0]:
-                    print(f"\nLivro: {livro[1]}\n ID: {livro[0]}\n Emprestado por: {emprestimo[0]}\n")
+                    print(f"\nLivro: {livro[1]}\n ID: {livro[0]}\n Emprestado por: CPF: {emprestimo[0]}\n")
         print("-----------------------------------------")
-    elif opcao == "3":
+    elif opcao == "2":
         print("\n-------- RELATÓRIO DE LIVROS --------")
         for livro in livros:
             print(f"""
@@ -167,13 +147,22 @@ def gerar_relatorio():
 def menu_principal():
     while True:
         print("""
+       .--.                   .---.           
+   .---|__|           .-.     |~~~|   
+.--|===|--|_          |_|     |~~~|--.
+|  |===|  |'\     .---!~|  .--|   |--|
+|%%|   |  |.'\    |===| |--|%%|   |  |
+|%%|   |  |\.'\   |   | |__|  |   |  |
+|  |   |  | \  \  |===| |==|  |   |  |
+|  |   |__|  \.'\ |   |_|__|  |~~~|__|
+|  |===|--|   \.'\|===|~|--|%%|~~~|--|
+^--^---'--^    `-'`---^-^--^--^---'--'
 -------- MENU DA BIBLIOTECA ---------
 1) Livro
 2) Pessoa
-3) Multas
-4) Empréstimo
-5) Relatório
-6) Sair  
+3) Empréstimo
+4) Relatório
+5) Sair  
 """)
         opcao = input("Digite o número da opção desejada: ")
 
@@ -205,13 +194,9 @@ def menu_principal():
                 alterar_cadastro_pessoa()
 
         elif opcao == "3":
-            criar_multa()
-
-        elif opcao == "4":
             print("""
 1) Criar Empréstimo
 2) Baixar Empréstimo
-3) Adiar Empréstimo
 """)
             escolha = input("Digite o número da opção desejada: ")
 
@@ -222,10 +207,10 @@ def menu_principal():
             elif escolha == "3":
                 adiar_emprestimo()
 
-        elif opcao == "5":
+        elif opcao == "4":
             gerar_relatorio()
 
-        elif opcao == "6":
+        elif opcao == "5":
             print("Volte sempre!")
             break
         else:
