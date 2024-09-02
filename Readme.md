@@ -30,6 +30,6 @@ Para executar o sistema, você precisará de:
 1. **Instale o Repositorio em sua maquina:**
    Primeiro, instale o repositorio .zip em sua maquina e extraia ele. Você pode baixar [aqui](https://github.com/mycaio/sistema-de-biblioteca/archive/refs/heads/main.zip).
 
-2. **Abra o Arquivo Main|:**
+2. **Abra o Arquivo Main:**
     Agora dentro da pasta do repostorio (Sistema-de-blioteca) clique com o botão direito no arquivo cadastroLivroEpessoa.py e execute-o (abrir com) com python.
    
